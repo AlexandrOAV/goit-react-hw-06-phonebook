@@ -4,12 +4,12 @@ import css from './ContactForm.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 
 import { nanoid } from 'nanoid';
-import { addContact, selectList } from 'redux/contactsSlice';
+import { addContact, selectContacts } from 'redux/contactsSlice';
 
 
 function ContactForm() {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectList);
+  const contacts = useSelector(selectContacts);
 
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -82,8 +82,5 @@ function ContactForm() {
   }
 
 
-// ContactForm.propTypes = {
-//   submitForm: PropTypes.func.isRequired,
-// };
 
 export default ContactForm;

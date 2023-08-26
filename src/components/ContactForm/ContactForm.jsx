@@ -26,23 +26,17 @@ function ContactForm() {
   const handleSubmit = evt => {
     evt.preventDefault();
 
-    const isNameExist = contacts.some(
+    const userName = contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
 
-    if (isNameExist) {
+    if (userName) {
       alert(`${name} is already in contacts`);
       return;
     }
 
-    const isNumberExist = contacts.some(contact => contact.number === number);
 
-    if (isNumberExist) {
-      alert(`The number ${number} is already in contacts`);
-      return;
-    }
-
-    const newData = { id: nanoid(5), name, number };
+    const newData = { id: nanoid(7), name, number };
     dispatch(addContact(newData));
     reset();
   };
